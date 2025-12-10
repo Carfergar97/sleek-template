@@ -66,19 +66,26 @@
 
 \newif\ifLogo
 \newif\ifInstitute
-\newif\ifFaculty
+\newif\ifObjetivos
+\newif\ifInstrumentacion
+\newif\ifComponentes
+\newif\ifGrado
+\newif\ifCurso
 \newif\ifDepartment
 \newif\ifSubtitle
 \newif\ifSupervisor
-\newif\ifContext
+\newif\ifAsignatura
 
 \newcommand*{\logo}[1]{\gdef\@logo{#1}\Logotrue}
-\newcommand*{\institute}[1]{\gdef\@institute{#1}\Institutetrue}
-\newcommand*{\faculty}[1]{\gdef\@faculty{#1}\Facultytrue}
+\newcommand*{\objetivos}[1]{\gdef\@objetivos{#1}\Objetivostrue}
+\newcommand*{\instrumentacion}[1]{\gdef\@instrumentacion{#1}\Instrumentaciontrue}
+\newcommand*{\componentes}[1]{\gdef\@componentes{#1}\Componentestrue}
+\newcommand*{\grado}[1]{\gdef\@grado{#1}\Gradotrue}
+\newcommand*{\curso}[1]{\gdef\@curso{#1}\Cursotrue}
 \newcommand*{\department}[1]{\gdef\@department{#1}\Departmenttrue}
 \newcommand*{\subtitle}[1]{\gdef\@subtitle{#1}\Subtitletrue}
 \newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}\Supervisortrue}
-\newcommand*{\context}[1]{\gdef\@context{#1}\Contexttrue}
+\newcommand*{\asignatura}[1]{\gdef\@asignatura{#1}\Asignaturatrue}
 
 % Title page
 
@@ -111,64 +118,44 @@
             \vspace{-0.25cm}
             \vspace{\titleskipbelow}
         \end{minipage}
-        \ifInstitute
+        \ifObjetivos
             \begin{center}
              \scshape
               \textbf{\large Objetivos}
             \end{center}
-            {\@institute\unskip\\}
-        \ifInstitute
+            {\@objetivos\unskip}
+        \ifInstrumentacion
             \begin{center}
              \scshape
               \textbf{\large Instrumentación}
             \end{center}
-            {\@institute\unskip\\}
-        \ifInstitute
+            {\@instrumentacion\unskip}
+        \ifComponentes
             \begin{center}
              \scshape
               \textbf{\large Componentes}
             \end{center}
-            {\@institute\unskip\\}
+            {\@componentes\unskip}
 
         \begin{center}
-            \ifSubtitle
-                {\Large\@subtitle\clearpar}
-            \fi
             \vfill
                 {
-                    \scshape
-                    \ifInstitute
-                      \begin{center}
-                      \end{center}
-                      {\@institute\unskip\\}
-                        % {\LARGE\@institute\unskip\\}
-                    \fi
-                    \ifFaculty
-                        {\Large\@faculty\unskip\\[1ex]}
-                    \fi
-                    \ifDepartment
-                        {\large\@department}
-                    \fi
-                    \clearpar
+                   \scshape
+                   \ifGrado
+                        {\Large\@grado\unskip\\[1ex]}
+                   \fi
+                   \clearpar
                 }
             \vfill
-            \ifSupervisor
-                \begin{minipage}[t]{0.49\textwidth}
-                    {\large\@author\clearpar}
-                \end{minipage}
-                \begin{minipage}[t]{0.49\textwidth}
-                    \begin{flushright}
-                        {\large\@supervisor\clearpar}
-                    \end{flushright}
-                \end{minipage}
-            \else
-                {\large\@author}
+            \ifDepartment
+               {\large\@department\clearpar}
             \fi
-            \vfill
-            \ifContext
-                {\large\@context\clearpar}
+            \ifAsignatura
+                {\large\@asignatura\clearpar}
             \fi
-            {\large\@date\clearpar}
+            \ifCurso
+              {\large Curso \@curso\clearpar}
+            \fi
         \end{center}
     \end{titlepage}
     \restoregeometry
