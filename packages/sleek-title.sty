@@ -20,7 +20,7 @@
 
 \newcommand*{\calculateheights}{
     \countlines{\bfseries\huge\@title}
-    \FPeval{\topratio}{0.3 - 0.01 * (\numlines - 1)}
+    \FPeval{\topratio}{0.2 - 0.01 * (\numlines - 1)}
     \FPeval{\skipratio}{\topratio - 0.15}
     \setlength{\logoheight}{0.15\textheight}
     \setlength{\topheight}{\topratio\textheight}
@@ -92,20 +92,7 @@
                 \ifLogo
                     \includegraphics[height=\logoheight]{\@logo}
                 \fi
-                \vfill
-                {
-                    \scshape
-                    \ifInstitute
-                        {\LARGE\@institute\unskip\\}
-                    \fi
-                    \ifFaculty
-                        {\Large\@faculty\unskip\\[1ex]}
-                    \fi
-                    \ifDepartment
-                        {\large\@department}
-                    \fi
-                    \clearpar
-                }
+                
             \end{center}
         \end{minipage}
         \begin{minipage}{\textwidth}
@@ -118,16 +105,52 @@
                 rightline=false
             ]
                 \begin{center}
-                    {\bfseries\huge\@title\clearpar}
+                    {\bfseries\Large\@title\clearpar}
                 \end{center}
             \end{mdframed}
             \vspace{-0.25cm}
             \vspace{\titleskipbelow}
         \end{minipage}
+        \ifInstitute
+            \begin{center}
+             \scshape
+              \textbf{\large Objetivos}
+            \end{center}
+            {\@institute\unskip\\}
+        \ifInstitute
+            \begin{center}
+             \scshape
+              \textbf{\large Instrumentación}
+            \end{center}
+            {\@institute\unskip\\}
+        \ifInstitute
+            \begin{center}
+             \scshape
+              \textbf{\large Componentes}
+            \end{center}
+            {\@institute\unskip\\}
+
         \begin{center}
             \ifSubtitle
                 {\Large\@subtitle\clearpar}
             \fi
+            \vfill
+                {
+                    \scshape
+                    \ifInstitute
+                      \begin{center}
+                      \end{center}
+                      {\@institute\unskip\\}
+                        % {\LARGE\@institute\unskip\\}
+                    \fi
+                    \ifFaculty
+                        {\Large\@faculty\unskip\\[1ex]}
+                    \fi
+                    \ifDepartment
+                        {\large\@department}
+                    \fi
+                    \clearpar
+                }
             \vfill
             \ifSupervisor
                 \begin{minipage}[t]{0.49\textwidth}
